@@ -1,8 +1,8 @@
-import React from 'react'
+// import React from 'react'
 import Header from '../Shared/Header/Header';
 import NavBar from '../Shared/NavBar/NavBar';
 import LeftSideNav from '../Shared/LeftSideNav/LeftSideNav';
-import RightSideNav from '../Shared/RightSideNav/RightSideNav';
+// import RightSideNav from '../Shared/RightSideNav/RightSideNav';
 import BreakingNews from './BreakingNews';
 
 const Home = () => {
@@ -19,7 +19,7 @@ const Home = () => {
           <h1>New Coming Soon</h1>
         </div>
         <div className="border border-green-500">
-          <RightSideNav />
+          {/* <RightSideNav /> */}
         </div>
       </div>
     </div>
