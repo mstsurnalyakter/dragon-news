@@ -176,7 +176,7 @@ const NavBar = () => {
   }, []);
 
   return (
-    <Navbar className="mx-auto max-w-screen-xl px-4 py-2 shadow-none">
+    <Navbar className="mx-auto mb-10 max-w-screen-xl px-4 py-2 shadow-none">
       <div className="flex items-center justify-between text-blue-gray-900">
         <div className="hidden flex-grow items-center justify-center  lg:flex">
           <NavList />

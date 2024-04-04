@@ -2,20 +2,14 @@ import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types';
 import Marquee from "react-fast-marquee";
 import { Link } from 'react-router-dom';
+import useNewsData from '../../hooks/useNewsData';
 
 
 
 const BreakingNews = () => {
-  const [newsData,setNewsData] = useState([])
-  useEffect(()=>{
-    fetch("news.json")
-    .then(res=>res.json())
-    .then(data=>setNewsData(data))
-    .catch(error=>{
-      console.error(error)
-    })
-  },[])
-  console.log(newsData);
+
+  const {newsData,loading} = useNewsData();
+
   return (
     <div className="flex items-center  p-4 bg-[#F3F3F3] mb-8">
       <button className="btn bg-[#D72050] hover:bg-[#f3124e] text-white">
