@@ -4,10 +4,12 @@ import { Outlet } from 'react-router'
 
 const Root = () => {
   return (
-    <div>
-        <Outlet/>
+    <div className="font-poppins">
+      <div className='max-w-6xl mx-auto'>
+        <Outlet />
+      </div>
     </div>
-  )
+  );
 }
 
 Root.propTypes = {}
