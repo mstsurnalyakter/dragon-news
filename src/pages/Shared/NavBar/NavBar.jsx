@@ -182,6 +182,18 @@ const NavBar = () => {
           <NavList />
         </div>
         <div className="hidden gap-2 lg:flex">
+          <div
+            tabIndex={0}
+            role="button"
+            className="btn btn-ghost btn-circle avatar"
+          >
+            <div className="w-10 rounded-full">
+              <img
+                alt="Tailwind CSS Navbar component"
+                src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+              />
+            </div>
+          </div>
           <Button size="sm" color="blue-gray">
             <Link to={"/login"} className="capitalize">
               Log In
@@ -205,7 +217,19 @@ const NavBar = () => {
         <div className="flex items-center justify-center">
           <NavList />
         </div>
-        <div className="flex w-full flex-nowrap items-center gap-2 lg:hidden">
+        <div className="flex w-full flex-col flex-nowrap items-center gap-2 lg:hidden">
+          <div
+            tabIndex={0}
+            role="button"
+            className="btn btn-ghost btn-circle avatar"
+          >
+            <div className="w-10 rounded-full">
+              <img
+                alt="Tailwind CSS Navbar component"
+                src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+              />
+            </div>
+          </div>
           <Button size="sm" color="blue-gray" fullWidth>
             <Link to={"/login"} className="w-full capitalize">
               Log In
