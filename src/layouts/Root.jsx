@@ -5,7 +5,7 @@ import { Outlet } from 'react-router'
 const Root = () => {
   return (
     <div className="font-poppins">
-      <div className='max-w-6xl mx-auto'>
+      <div className='max-w-6xl mx-auto px-4'>
         <Outlet />
       </div>
     </div>

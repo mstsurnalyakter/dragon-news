@@ -1,9 +1,25 @@
 import React from 'react'
+import Header from '../Shared/Header/Header';
+import NavBar from '../Shared/NavBar/NavBar';
+import LeftSideNav from '../Shared/LeftSideNav/LeftSideNav';
+import RightSideNav from '../Shared/RightSideNav/RightSideNav';
 
 const Home = () => {
   return (
     <div>
-      <h2 className='text-3xl'>Home</h2>
+      <Header />
+      <NavBar />
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+        <div className="border border-green-500">
+          <LeftSideNav />
+        </div>
+        <div className="lg:col-span-2 border border-green-500">
+          <h1>New Coming Soon</h1>
+        </div>
+        <div className="border border-green-500">
+          <RightSideNav />
+        </div>
+      </div>
     </div>
   );
 }
