@@ -3,10 +3,13 @@ import PropTypes from "prop-types";
 import NavBar from "../Shared/NavBar/NavBar";
 
 import { Card, Input, Button, Typography } from "@material-tailwind/react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 
 const Login = () => {
+
+  const location = useLocation();
+  const navigate = useNavigate();
       const { signIn } = useContext(AuthContext);
 
     const handleLogin = (e) =>{
@@ -21,6 +24,7 @@ const Login = () => {
       signIn(email, password)
         .then((result) => {
           console.log(result.user);
+          navigate(location?.state ? location.state : "/")
         })
         .catch((error) => {
           console.error(error);
