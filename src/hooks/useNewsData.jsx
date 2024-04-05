@@ -8,7 +8,7 @@ const useNewsData = () => {
        const fetchNewsData = async () =>{
          try {
             setLoading(true);
-            const res = await fetch("news.json");
+            const res = await fetch("/news.json");
             if (!res.ok) {
                 throw new Error("Fail to news data fetch.")
             }

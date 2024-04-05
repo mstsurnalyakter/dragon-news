@@ -1,11 +1,10 @@
-import React from 'react'
 import PropTypes from 'prop-types'
 import { Rating } from '@material-tailwind/react';
 import { FaRegEye } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { CiBookmark, CiShare2 } from "react-icons/ci";
 const NewsCard = ({news}) => {
-      const { thumbnail_url, details, author, rating, title, total_view } =
+      const { thumbnail_url, details, author, rating, title,_id, total_view } =
         news || {};
       const date = new Date(author.published_date);
       const formattedDate = date.toLocaleDateString("en-US", {
@@ -46,7 +45,7 @@ const NewsCard = ({news}) => {
             {details.length > 200 ? (
               <p>
                 {details.slice(0, 200)}{" "}
-                <Link className="bg-gradient-to-r from-orange-500 to-pink-500   text-transparent bg-clip-text">
+                <Link to={`/news/${_id}`} className="bg-gradient-to-r from-orange-500 to-pink-500   text-transparent bg-clip-text">
                   Read More....
                 </Link>
               </p>

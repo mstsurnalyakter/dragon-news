@@ -36,7 +36,7 @@ const LeftSideNav = () => {
         ))}
       </div>
       <div className="space-y-4">
-        {newsData.slice(0, 3).map((data) => {
+        {newsData.map((data) => {
           const { thumbnail_url, title, author } = data || {};
           const date = new Date(author.published_date);
           const formattedDate = date.toLocaleDateString("en-US", {

@@ -1,16 +1,12 @@
-// import React from 'react'
+
 import Header from '../Shared/Header/Header';
 import NavBar from '../Shared/NavBar/NavBar';
 import LeftSideNav from '../Shared/LeftSideNav/LeftSideNav';
 import RightSideNav from '../Shared/RightSideNav/RightSideNav';
 import BreakingNews from './BreakingNews';
 import useNewsData from '../../hooks/useNewsData';
-import { Link } from 'react-router-dom';
-import { Rating } from "@material-tailwind/react";
-import { FaRegEye } from "react-icons/fa";
-import { CiBookmark, CiShare2 } from 'react-icons/ci';
 import NewsCard from './NewsCard';
-// import { CiShare2 } from "react-icons/ci";
+
 
 
 const Home = () => {

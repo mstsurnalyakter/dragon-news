@@ -1,14 +1,30 @@
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import NavBar from "../Shared/NavBar/NavBar";
 
 import { Card, Input, Button, Typography } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Login = () => {
+      const { signIn } = useContext(AuthContext);
 
+    const handleLogin = (e) =>{
 
-    const handleLogin = () =>{
+      e.preventDefault();
+      const form = new FormData(e.currentTarget);
+      const email = form.get("email");
+      const password = form.get("password");
+
+      console.log( email,  password);
+
+      signIn(email, password)
+        .then((result) => {
+          console.log(result.user);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
 
     }
 

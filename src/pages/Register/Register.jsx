@@ -1,11 +1,32 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
 import NavBar from '../Shared/NavBar/NavBar';
 import { Card, Input, Button, Typography, Checkbox } from "@material-tailwind/react";
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../provider/AuthProvider';
 
 const Register = () => {
-    const handleRegister = () =>{
+
+  const {createUser} = useContext(AuthContext);
+
+
+    const handleRegister = (e) =>{
+      e.preventDefault()
+      const form = new FormData(e.currentTarget);
+      const name = form.get("name");
+      const email = form.get("email");
+      const photo = form.get("photo");
+      const password = form.get("password");
+
+      console.log(name,email,photo,password);
+
+      createUser(email,password)
+      .then(result=>{
+        console.log(result.user);
+      })
+      .catch(error=>{
+        console.error(error);
+      })
 
     }
   return (
@@ -40,8 +61,8 @@ const Register = () => {
             </Typography>
             <Input
               size="lg"
-              type="file"
-              name="file"
+              type="text"
+              name="photo"
               required
               placeholder="choose you image"
               className=" !border-t-blue-gray-200 focus:!border-t-gray-900 !bg-[#F3F3F3]"

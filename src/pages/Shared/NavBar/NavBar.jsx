@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import {
   Navbar,
@@ -19,6 +19,7 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../../provider/AuthProvider";
 // import {
 //   Bars4Icon,
 //   GlobeAmericasIcon,
@@ -161,14 +162,41 @@ function NavList() {
           Career
         </NavLink>
       </Typography>
+      <Typography
+        variant="small"
+        color="blue-gray"
+        className="font-medium w-full"
+      >
+        <NavLink
+          to={"/login"}
+          className={({ isActive }) =>
+            isActive
+              ? "underline bg-purple-500 rounded-lg text-white  px-4 py-2 flex items-center justify-center  gap-2 "
+              : "flex items-center justify-center"
+          }
+        >
+          Login
+        </NavLink>
+      </Typography>
     </List>
   );
 }
 
 const NavBar = () => {
-  const [openNav, setOpenNav] = React.useState(false);
+  const [openNav, setOpenNav] = useState(false);
+  const {logOut,user} = useContext(AuthContext);
 
-  React.useEffect(() => {
+  const handleSingOut = () =>{
+    logOut()
+    .then(()=>{
+      alert("You are LogOut");
+    })
+    .catch(error=>{
+      console.error(error);
+    })
+  }
+
+  useEffect(() => {
     window.addEventListener(
       "resize",
       () => window.innerWidth >= 960 && setOpenNav(false)
@@ -194,11 +222,22 @@ const NavBar = () => {
               />
             </div>
           </div>
-          <Button size="sm" color="blue-gray">
-            <Link to={"/login"} className="capitalize">
-              Log In
-            </Link>
-          </Button>
+          {user ? (
+            <Button
+              onClick={handleSingOut}
+              size="sm"
+              color="blue-gray"
+              className="capitalize"
+            >
+              Sign Out
+            </Button>
+          ) : (
+            <Button size="sm" color="blue-gray">
+              <Link to={"/login"} className="capitalize">
+                Log In
+              </Link>
+            </Button>
+          )}
         </div>
         <IconButton
           variant="text"
@@ -230,11 +269,23 @@ const NavBar = () => {
               />
             </div>
           </div>
-          <Button size="sm" color="blue-gray" fullWidth>
-            <Link to={"/login"} className="w-full capitalize">
-              Log In
-            </Link>
-          </Button>
+
+          {user ? (
+            <Button
+              onClick={handleSingOut}
+              size="sm"
+              color="blue-gray"
+              className="capitalize"
+            >
+              Sign Out
+            </Button>
+          ) : (
+            <Button size="sm" color="blue-gray">
+              <Link to={"/login"} className="w-full capitalize">
+                Log In
+              </Link>
+            </Button>
+          )}
         </div>
       </Collapse>
     </Navbar>
