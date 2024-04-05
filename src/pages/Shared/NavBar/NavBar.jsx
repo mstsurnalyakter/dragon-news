@@ -232,7 +232,7 @@ const NavBar = () => {
               Sign Out
             </Button>
           ) : (
-            <Button size="sm" color="blue-gray">
+            <Button size="sm" color="blue-gray" className="bg-purple-700">
               <Link to={"/login"} className="capitalize">
                 Log In
               </Link>
@@ -275,13 +275,13 @@ const NavBar = () => {
               onClick={handleSingOut}
               size="sm"
               color="blue-gray"
-              className="capitalize"
+              className="capitalize w-full"
             >
               Sign Out
             </Button>
           ) : (
-            <Button size="sm" color="blue-gray">
-              <Link to={"/login"} className="w-full capitalize">
+            <Button size="sm" color="blue-gray" className="bg-purple-700 w-full">
+              <Link to={"/login"} className="w-full capitalize bg-purple-700">
                 Log In
               </Link>
             </Button>
