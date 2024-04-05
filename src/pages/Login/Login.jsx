@@ -53,24 +53,13 @@ const Login = () => {
                 className: "before:content-none after:content-none",
               }}
             />
-            {/*
-            <Typography color="gray" className="font-normal">
-              <Link
-                onClick={handleForgetPassword}
-                className="font-medium underline text-blue-900"
-              >
-                Forget Password
-              </Link>
-            </Typography> */}
           </div>
 
           <Button type="submit" className="mt-6 capitalize" fullWidth>
             Login
           </Button>
-          {/* {loginError && <small className="text-red-500">{loginError}</small>}
-          {success && <small className="text-green-500">{success}</small>} */}
           <Typography color="gray" className="mt-4 text-center font-normal">
-            Don&apos;t Have An Account ?
+            Don&apos;t Have An Account ?{" "}
             <Link
               to={"/register"}
               className="font-medium underline text-gray-900"
